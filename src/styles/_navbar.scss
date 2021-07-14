@@ -1,0 +1,71 @@
+.header{
+    background: #242424;
+    width: 100%;
+}
+
+.navbar{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+
+    &__logo{
+        height:4.5rem ;
+        width: 16.4rem;
+
+        .icon{
+            height: 100%;
+            width: 100%;
+            display: inline-block;
+            background: url("../assets-image/svgs/logo.svg");
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+    }
+
+    &__links{
+        margin-left: -10rem;
+        li{
+            display: none;
+            margin-bottom: 1rem;
+
+            @include breakpoint-up(large){
+               display: inline-block;
+            }
+
+            &:not(:last-child){
+                margin-right:4.5rem ;
+            }
+
+
+            .navbar--link{
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: 1.3rem;
+                color: #fff;
+                font-weight: 400;
+            }
+
+        }
+    }
+
+    .cart-icon{
+        height:3rem ;
+        width: 3rem;
+        margin-bottom: 1.5rem;
+
+        .icon{
+            height: 100%;
+            width: 100%;
+            display: inline-block;
+            background: url("../assets/shared/desktop/cart.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+      
+    }
+
+}
