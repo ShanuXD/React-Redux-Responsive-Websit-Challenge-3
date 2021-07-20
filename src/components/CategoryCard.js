@@ -7,10 +7,6 @@ const CategoryCard = ({ productCategory, number }) => {
   return (
     <div className="product-card container">
       <div className="card">
-        {/* <img
-          src={"../assets-image/shared/imageearphones.png"}
-          alt={productCategory}
-        /> */}
         <div className={`image-${number}`}></div>
         <span className="title">{productCategory}</span>
         <span className="btn-shop">

@@ -1,10 +1,24 @@
 .header{
     background: #242424;
     width: 100%;
+    position: relative;
+
+    .overlay{
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background:#242424b6;
+        z-index: 10;
+    }
+    .hide-cartbox{
+        display: none;
+    }
 }
 
 .navbar{
-
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,6 +69,7 @@
         height:3rem ;
         width: 3rem;
         margin-bottom: 1.5rem;
+        z-index: 15;
 
         .icon{
             height: 100%;

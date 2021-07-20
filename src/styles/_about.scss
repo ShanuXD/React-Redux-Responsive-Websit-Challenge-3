@@ -1,93 +1,77 @@
-.about{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column-reverse;
-    margin-bottom: 10rem;
-    text-align: center;
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column-reverse;
+  margin-bottom: 10rem;
+  text-align: center;
 
-    @include breakpoint-up(large){
-        flex-direction: row;
-        justify-content: space-between;
-     }
+  @include breakpoint-up(large) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
-    &__text{
-
-        @include breakpoint-up(medium){
-            width:100%;
-            padding-right: 2rem;
-        }
-
-        @include breakpoint-up(large){
-            width: 50%;
-           padding: 4rem 0;
-           padding-right: 10rem;
-           text-align: left;
-         }
-
-        &--heading{
-
-            margin-bottom: 2rem;
-            font-size: 2.5rem;
-            @include breakpoint-up(medium){
-                font-weight: 700;
-
-            }
-            @include breakpoint-up(large){
-                font-size: 4rem;
-                font-weight: 700;
-
-            }
-          
-
-            strong{
-                color:$brown;
-            }
-        }
-        &--sub-heading{
-            margin-bottom: 2rem;
-            font-size: 2rem;
-            color: #242424;
-        }
-
+  &__text {
+    @include breakpoint-up(medium) {
+      width: 100%;
+      padding-right: 2rem;
     }
 
-    &__image{
-
-       
-        height: 40rem;
-        background-color: #EEE;
-        width: 100%;
-        margin-bottom: 2rem;
-        background: url("../assets-image/shared/gear-mob.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        border-radius: 10px;
-
-        @include breakpoint-up(medium){
-            background: url("../assets-image/shared/gear-tab.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            
-        }
-        @include breakpoint-up(large){
-            background: url("../assets-image/shared/gear-desktop.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            
-        }
-
-        // @include breakpoint-up(medium){
-        //     width: 50%;
-        //     height: 60rem;
-        // }
-
-        @include breakpoint-up(large){
-            width: 50%;
-            height: 60rem;
-          }
+    @include breakpoint-up(large) {
+      width: 50%;
+      padding: 4rem 0;
+      padding-right: 10rem;
+      text-align: left;
     }
+
+    &--heading {
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      @include breakpoint-up(medium) {
+        font-weight: 700;
+      }
+      @include breakpoint-up(large) {
+        font-size: 4rem;
+        font-weight: 700;
+      }
+
+      strong {
+        color: $brown;
+      }
+    }
+    &--sub-heading {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: #242424;
+    }
+  }
+
+  &__image {
+    height: 40rem;
+    background-color: #eee;
+    width: 100%;
+    margin-bottom: 2rem;
+    background: url("../assets-image/shared/gear-mob.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 10px;
+
+    @include breakpoint-up(medium) {
+      background: url("../assets-image/shared/gear-tab.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    @include breakpoint-up(large) {
+      background: url("../assets-image/shared/gear-desktop.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    @include breakpoint-up(large) {
+      width: 50%;
+      height: 60rem;
+    }
+  }
 }

@@ -1,9 +1,34 @@
-import React from "react";
+import React, {useRef} from "react";
 import { Link } from "react-router-dom";
+import CartPreviewBox from './CartPreviewBox'
+
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+
+  const products_state = useSelector((state) => state);
+  const overlayRef = useRef(null)
+
+  const handelMenu = ()=>{
+    if(overlayRef.current.classList.contains("overlay")){
+      overlayRef.current.classList.remove("overlay")
+      overlayRef.current.classList.add("hide-cartbox")
+    }
+    else{
+      overlayRef.current.classList.add("overlay")
+      overlayRef.current.classList.remove("hide-cartbox")
+    }
+  }
+
+  const closeMenu = ()=>{
+    handelMenu()
+  }
+
   return (
     <header className="header">
+      <div ref={overlayRef} className="hide-cartbox">
+        <CartPreviewBox closeMenu={closeMenu} products_state={products_state} />
+      </div>
       <nav className="navbar container">
         <div className="navbar__logo">
           <Link className="icon" to="/"></Link>
@@ -31,7 +56,7 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="cart-icon">
-          <Link className="icon" to="/checkout"></Link>
+          <span onClick={handelMenu} className="icon" to="/checkout"></span>
         </div>
       </nav>
     </header>

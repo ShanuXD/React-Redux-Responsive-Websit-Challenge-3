@@ -1,29 +1,45 @@
-import React from 'react'
-import { Link,} from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 
-const RenderProducts = ({products, productCategory}) => {
+import imageData from "../images";
 
-    return (
-    <section className="products container">
-      {products.map((product, index) => {
-        const {id, name, features, description} = product
-        return (
-          <div key={index} className="card">
-            <img src="YX1 EARPHONES" alt="" />
-            <div className="tab__text">
-              <div className="tab__text--heading">{name}</div>
-              <div className="tab__text--sub-heading">
-                {description}
+const RenderProducts = ({ products, productCategory }) => {
+  return (
+    <>
+      <div className="all-products--title">{productCategory}</div>
+      <section className="all-products container">
+        {products.map((product, index) => {
+          const { id, name, description } = product;
+          const isReverse = Math.ceil(index % 2 === 0);
+          return (
+            <div
+              key={index}
+              className={`single-product ${isReverse ? "reverse" : ""}`}
+            >
+              <img
+                className="single-product--image"
+                src={`${imageData[name][0]}`}
+                alt={name}
+              />
+              <div className="single-product__text-box">
+                {index === 0 && <div className="alert-text">new product</div>}
+                <div className="single-product--heading heading-text">
+                  {name}
+                </div>
+                <div className="single-product--sub-heading">{description}</div>
+                <Link
+                  to={`/${productCategory}/${id}`}
+                  className="single-product--btn btn"
+                >
+                  see products
+                </Link>
               </div>
-              <Link to={`/${productCategory}/${id}`} className="tab__text--btn btn btn--black">
-                see products
-              </Link>
             </div>
-          </div>
-        );
-      })}
-    </section>
-    )
-}
+          );
+        })}
+      </section>
+    </>
+  );
+};
 
-export default RenderProducts
+export default RenderProducts;

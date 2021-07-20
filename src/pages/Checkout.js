@@ -3,20 +3,31 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "../redux/action";
 import Footer from "../components/Footer";
+import { cartImage } from "../images";
 
 const Checkout = () => {
   const dispatch = useDispatch();
-  const products_state = useSelector((state) => state.products);
+  const {products, total} = useSelector((state) => state);
+  const shippingCharge = 500
+  const vatCharge = 1500
+  const grandTotal = shippingCharge+ vatCharge+ total
 
-  // if(products_state.length===0){
-  //     return (
-  //       <>
-  //       <div className="empty-cart">
-  //       <h1>Cart is Empty</h1>
-  //       </div>
-  //       <Footer />
-  //       </>)
-  // }
+  const onPurchase = ()=>{
+    dispatch(clearCart())
+  }
+
+
+
+  if (products.length === 0) {
+    return (
+      <>
+        <div className="empty-cart">
+          <h1>Cart is Empty</h1>
+        </div>
+        <Footer />
+      </>
+    );
+  }
 
   return (
     <>
@@ -110,36 +121,80 @@ const Checkout = () => {
                 {/* if e money got selected */}
                 {/* e-money/num */} {/*e-money-Pin*/}
                 <div className="e-money-number">
-                <label htmlFor="e-money-number">e-Money number</label>
-                <br />
-                <input
-                  id="e-money-number"
-                  type="text"
-                  name="e-money-number"
-                  placeholder="India"
-                />
+                  <label htmlFor="e-money-number">e-Money number</label>
+                  <br />
+                  <input
+                    id="e-money-number"
+                    type="text"
+                    name="e-money-number"
+                    placeholder="India"
+                  />
                 </div>
                 <div className="e-money-pin">
-                <label htmlFor="e-money-pin">e-Money PIN</label>
-                <br />
-                <input
-                  id="e-money-pin"
-                  type="text"
-                  name="e-money-pin"
-                  placeholder="India"
-                />
+                  <label htmlFor="e-money-pin">e-Money PIN</label>
+                  <br />
+                  <input
+                    id="e-money-pin"
+                    type="text"
+                    name="e-money-pin"
+                    placeholder="India"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="checkout-summary">
+              <h2 className="checkout-summary--title">Summary</h2>
+              <div className="checkout-summary__items">
+                {products.map((product, index) => {
+                  const { name, price, quantity } = product;
+                  return (
+                    <div className="item" key={index}>
+                      <div className="item--info">
+                        <img src={cartImage[name]} alt={name} />
+                        <div className="text">
+                          <div className="name">{name}</div>
+                          <div className="price">{price}</div>
+                        </div>
+                      </div>
+                      <div className="item--quantity">
+                        x <span>{quantity}</span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+                <div className="checkout-summary__total-cost">
+                  <div className="total">
+                    <span>Total</span>
+                    <span>{}</span>
+                  </div>
+                  <div className="shipping">
+                    <span>Shipping</span>
+                    <span>Rs {shippingCharge}</span>
+                  </div>
+                  <div className="total">
+                    <span>Vat (Included)</span>
+                    <span>Rs {vatCharge}</span>
+                  </div>
+                  <div className="grand-total">
+                    <span>Grand Total</span>
+                    <span>{grandTotal}</span>
+                  </div>
                 </div>
 
 
+              <div className="checkout__btn">
+                <span
+                  className="btn btn-buy"
+                  onClick={onPurchase}>
+                  Continue & Pay
+                </span>
               </div>
             </div>
-            <div className="checkout-summary"></div>
+
           </form>
-        </div>
-        <div className="checkout__summary">
-          <span className="btn btn-buy" onClick={() => dispatch(clearCart())}>
-            Continue & Pay
-          </span>
         </div>
       </section>
       <Footer />

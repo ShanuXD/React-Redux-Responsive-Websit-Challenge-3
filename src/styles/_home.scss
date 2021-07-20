@@ -1,5 +1,4 @@
 .home-page{
-
 }
 
 .hero{
@@ -33,10 +32,18 @@
 
     &__text{
         text-align: center;
+        
 
         @include breakpoint-up(medium){
             padding: 0 4rem;
+            
         }
+        @include breakpoint-up(large){
+            max-width: 55rem;
+            text-align: left;
+            
+        }
+
 
         .alert-text{
             text-transform: uppercase;

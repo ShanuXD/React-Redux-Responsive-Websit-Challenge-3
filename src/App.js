@@ -18,7 +18,6 @@ function App() {
   return (
   <div className="app-container">
     <Router>
-      {/* Other Components */}
       <Provider store={store}>
       <Navbar/>
       <Switch>
