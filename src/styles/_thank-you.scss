@@ -1,0 +1,149 @@
+.thank-you{
+    background-color: #fff;
+    max-width: 60rem;
+    margin: 9rem 2rem 0 2rem;
+    border-radius: 1rem;
+    padding: 1rem 1rem;
+
+    .logo{
+        padding-top: 2rem;
+        .icon{
+            background-image: url("../assets-image/svgs/icon-arrow-right.svg");
+            height:4rem;
+            width: 4rem;
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-color: $brown;
+            border-radius: 100%;
+
+        }
+        .checkmark {
+            display:inline-block;
+            width:4rem;
+            height:4rem;
+            transform: rotate(45deg);
+            .checkmark_circle {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-color: $brown;
+                border-radius:100%;
+                left:0;
+                top:0;
+            }
+            .checkmark_stem {
+                position: absolute;
+                width: 5px;
+                height: 20px;
+                background-color: #fff;
+                left: 50%;
+                top: 40%;
+                transform: translate(-50%, -40%);
+            }
+            .checkmark_kick {
+                position: absolute;
+                width: 10px;
+                height: 5px;
+                background-color: #fff;
+                left: 27%;
+                top: 57%;
+            }
+        }
+    }
+    .heading{
+        line-height: 1.1;
+        margin: 2rem 0;
+
+    }
+    .text{
+        margin:1rem 0 2rem 0;
+        color: gray;
+    }
+    .box{
+
+        display: flex;
+        flex-direction: column;
+        @include breakpoint-up(medium){
+            flex-direction: row;
+         }
+
+
+
+        .products{
+            background-color: #eee;
+            min-height: 9rem;
+            border-radius: 2px;
+            background-color: #eee;
+            margin-bottom: 1rem;
+            padding: 1rem 1rem;
+            @include breakpoint-up(medium){
+                width: 50%;
+                margin-right: .5rem;
+             }
+            
+            .product-detail{
+                margin-bottom: 1rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+        
+
+                img{
+                    height: 5rem;
+                    width: 5rem;
+                    margin-right: 1.5rem;
+                }
+
+                &--text{
+
+                    .name{
+                        font-size: 1.6rem;
+                        font-weight: 900;
+                        margin-bottom: .5rem;
+
+                    }
+                    .price{
+                        color: gray;
+                    }
+                }
+            }
+
+            .product-quantity{
+                color: gray;
+                
+            }
+            
+        }
+
+        .grand-total{
+            min-height: 9rem;
+            border-radius: 2px;
+            padding: 1rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #242424;
+            margin-bottom: 1rem;
+            @include breakpoint-up(medium){
+                width: 50%;
+                margin-left: .5rem;
+             }
+
+            h3{
+                color: gray;
+                margin-bottom: 1rem;
+
+            }
+            span{
+                color: #fff;
+            }
+        }
+    }
+    .thank-you--btn{
+        margin-top: 1rem;
+        font-size: 1.4rem;
+    }
+}

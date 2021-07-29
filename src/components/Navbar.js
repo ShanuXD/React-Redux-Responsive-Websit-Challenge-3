@@ -13,10 +13,12 @@ const Navbar = () => {
     if(overlayRef.current.classList.contains("overlay")){
       overlayRef.current.classList.remove("overlay")
       overlayRef.current.classList.add("hide-cartbox")
+      document.body.style.overflowY="scroll"
     }
     else{
       overlayRef.current.classList.add("overlay")
       overlayRef.current.classList.remove("hide-cartbox")
+      document.body.style.overflowY="hidden"
     }
   }
 

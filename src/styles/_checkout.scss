@@ -6,27 +6,164 @@
 }
 
 .checkout {
-//   height: 100vh;
     height: 100%;
-    margin-bottom: 10rem;
+    padding-top: 3rem;
+    background-color: #eee;
+    padding-bottom: 20rem;
+
+    .checkout__complete-box{
+      display: none;
+      
+      &.overlay{
+        // display: flex;
+        justify-content: center;
+        align-items: center;
+
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background:#242424b6;
+        z-index: 50;
+      }
+  }
+
+
+    .checkout-container{
+
+      margin: 0 1.8rem;
+      @include breakpoint-up(medium){
+          margin: 0 6rem;
+       }
+      @include breakpoint-up(large){
+          margin: 0 10rem;
+       }
+  }
   
 
   &__deatials {
-    margin: 2rem 0;
-    background: #f7f7f7;
-    width: 100%;
-    border-radius: 10px;
-    padding: 3rem 2rem;
-    box-shadow: 0 4px 8px rgba($color: #000000, $alpha: .3);
+
+    margin-top: 3rem;
+
     h1{
-        text-transform: uppercase;
+      text-transform: uppercase;
     }
   }
   &__form {
-   
+
+    @include breakpoint-up(medium){
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+   }
+    
     .checkout-box {
+      margin: 2rem 0;
+      background: #fff;
+      width: 100%;
+      border-radius: 10px;
+      padding: 3rem 2rem;
+      margin-right: 1rem;
+
+      input {
+        border: .5px solid gray;
+        border-radius: 3px;
+        margin-bottom: 1rem;
+        height: 3rem;
+        width: 100%;
+        padding: 1.6rem 2rem;
+      }
+
+
+
+      box-shadow: 0 4px 8px rgba($color: #000000, $alpha: .3);
+      @include breakpoint-up(medium){
+        width: 60%;
+     }
     }
     .checkout-summary {
+      margin: 2rem 0;
+      background: #fff;
+      width: 100%;
+      border-radius: 10px;
+      padding: 3rem 2rem;
+      box-shadow: 0 4px 8px rgba($color: #000000, $alpha: .3);
+      @include breakpoint-up(medium){
+        width: 37%;
+        height: 60%;
+        
+     }
+
+     &--title{
+       text-transform: uppercase;
+     }
+
+     &__items{
+
+      .item{
+        display: flex;
+        justify-content: space-between;
+
+        &--info{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 1rem 0rem;
+          
+          img{
+            height: 5rem;
+            width: 5rem;
+            margin-right: .5rem;
+          }
+
+          .text{
+            font-size: 1rem;
+            .name{
+              max-width: 10rem;
+              margin-bottom: .5rem;
+              font-weight: 700;
+            }
+            .price{
+              color: gray;
+            }
+          }
+
+        }
+
+        &--quantity{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1rem;
+          color:$brown;
+          span{ 
+            color: gray;
+          }
+        }
+      }
+     }
+
+     &__total-cost{
+       margin-top: 2rem;
+       .total, .shipping, .vat, .grand-total{
+         display: flex;
+         justify-content: space-between;
+         margin-bottom: 1rem;
+         .text{
+          color:gray
+          }
+         span{
+           font-size: 1rem;
+         }
+       }
+       .grand-total{ span{
+         color: $brown;
+       }}
+
+       
+     }
+
     }
   }
 
@@ -34,96 +171,74 @@
   &--billing-details {
     font-size: 1.6rem;
     margin: 2rem 0;
+    padding-bottom: 2rem;
+    font-weight: 700;
     h5 {
       color: $brown;
       text-transform: uppercase;
       font-weight: 400;
     }
 
-    .name {
-      display: block;
-      input {
-        border: .5px solid gray;
-        border-radius: 3px;
-        margin-bottom: 1rem;
-        height: 3rem;
-        width: 100%;
+    .common{
+      @include breakpoint-up(medium){
+      display: flex;
+      justify-content: space-between;
       }
     }
-    .email {
-      display: block;
-      input {
-        border: .5px solid gray;
-        border-radius: 3px;
-        margin-bottom: 1rem;
-        height: 3rem;
-        width: 100%;
+
+    .name,.email{
+      width: 100%;
+      display: inline-block;
+      @include breakpoint-up(medium){
+        width: 48%;
       }
+
     }
+    
     .phone {
-        display: block;
-      input {
-        border: .5px solid gray;
-        border-radius: 3px;
-        margin-bottom: 1rem;
-        height: 3rem;
-        width: 100%;
+      display: block;
+      @include breakpoint-up(medium){
+        width: 48%;
       }
+
     }
+
   }
 
   &--shipping-info {
+    font-weight: 700;
     font-size: 1.6rem;
     margin: 2rem 0;
+    padding-bottom: 2rem;
     h5 {
       color: $brown;
       text-transform: uppercase;
       font-weight: 400;
     }
 
+    .common{
+      @include breakpoint-up(medium){
+      display: flex;
+      justify-content: space-between;
+      }
+    }
+
     .address {
-      input {
-        border: .5px solid gray;
-        border-radius: 3px;
-        margin-bottom: 1rem;
-        height: 3rem;
-        width: 100%;
-      }
+    
     }
-    .zip-code {
+    .zip-code, .city, .country {
       display:block;
-      input {
-        border: .5px solid gray;
-        margin-bottom: 1rem;
-        border-radius: 3px;
-        height: 3rem;
-        width: 100%;
+      @include breakpoint-up(medium){
+        width: 48%;
       }
+     
     }
-    .city {
-        display: block;
-      input {
-        border: .5px solid gray;
-        border-radius: 3px;
-        margin-bottom: 1rem;
-        height: 3rem;
-        width: 100%;
-      }
-    }
-    .country {
-        display: block;
-      input {
-        border: .5px solid gray;
-        border-radius: 3px;
-        margin-bottom: 1rem;
-        height: 3rem;
-        width: 100%;
-      }
-    }
+    
   }
   &--payment-details {
     font-size: 1.6rem;
     margin: 2rem 0;
+    padding-bottom: 2rem;
     h5 {
       color: $brown;
       text-transform: uppercase;
@@ -132,23 +247,13 @@
 
     .e-money-number {
         display: block;
-      input {
-        border: .5px solid gray;
-        border-radius: 3px;
-        margin-bottom: 1rem;
-        height: 3rem;
-        width: 100%;
-      }
+        font-weight: 700;
+     
     }
     .e-money-pin {
         display: block;
-      input {
-        border: .5px solid gray;
-        border-radius: 3px;
-        margin-bottom: 1rem;
-        height: 3rem;
-        width: 100%;
-      }
+        font-weight: 700;
+      
     }
 
 

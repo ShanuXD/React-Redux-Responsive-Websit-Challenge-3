@@ -79,10 +79,13 @@
     .left {
         font-size: 1.8rem;
         font-weight: 700;
+        cursor: pointer;
+        
     }
     .right {
       font-size: 1.6rem;
       font-weight: 700;
+      cursor: pointer;
     }
     .value{
         
@@ -123,4 +126,41 @@
       }
     }
   }
+
+  &__product-images{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    @include breakpoint-up("medium"){
+      // flex-direction: row;
+    }
+
+    img{
+      margin: 1rem 0rem;
+       width: 100%;
+       background-size: cover;
+       background-position: center center;
+      //  @include breakpoint-up("medium"){
+      //    width: 45%;
+      //  }
+    }
+
+    .image-1, .image-2{
+    }
+
+    @include breakpoint-up("medium"){
+      .image:nth-child(3){
+        order: 2;
+      }
+      .image:nth-child(2){
+        order: 3;
+      }
+    }
+
+    
+
+
+  }
+
+
 }

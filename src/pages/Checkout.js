@@ -1,22 +1,23 @@
-import React from "react";
+import React, {useRef} from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "../redux/action";
 import Footer from "../components/Footer";
 import { cartImage } from "../images";
+import ThankYou from "../components/ThankYou";
 
 const Checkout = () => {
-  const dispatch = useDispatch();
   const {products, total} = useSelector((state) => state);
+  const checkoutRef = useRef(null)
+
   const shippingCharge = 500
   const vatCharge = 1500
-  const grandTotal = shippingCharge+ vatCharge+ total
+  const grandTotal = total === 0 ? 0 : shippingCharge+ vatCharge+ total
 
   const onPurchase = ()=>{
-    dispatch(clearCart())
+    checkoutRef.current.classList.add("overlay")
+    checkoutRef.current.style.display="flex"
   }
-
-
 
   if (products.length === 0) {
     return (
@@ -31,19 +32,30 @@ const Checkout = () => {
 
   return (
     <>
-      <section className="checkout container">
-        <Link to="/">Go Back</Link>
+      <section  className="checkout">
+        <div ref={checkoutRef} className="checkout__complete-box">
+          <ThankYou 
+          products={products} 
+          total = {grandTotal}
+          checkoutRef={checkoutRef}
+          />
+        </div>
+        <div className="checkout-container">
+        <Link className="go-back" to="/">Go Back</Link>
         <br />
+        
         <div className="checkout__deatials">
           <h1>Checkout</h1>
           <form className="checkout__form">
             <div className="checkout-box">
               <div className="checkout--billing-details">
                 <h5>Billing Details</h5>
+                <div className="common">
                 <div className="name">
                   <label htmlFor="name">Name</label>
                   <br />
                   <input
+                    required
                     id="name"
                     type="text"
                     name="name"
@@ -54,16 +66,19 @@ const Checkout = () => {
                   <label htmlFor="email">Email</label>
                   <br />
                   <input
+                    required
                     id="email"
                     type="email"
                     name="email"
                     placeholder="Shanu@gmail.com"
                   />
                 </div>
+                </div>
                 <div className="phone">
                   <label htmlFor="phone">Phone Number</label>
                   <br />
                   <input
+                    required
                     id="phone"
                     type="tel"
                     name="email"
@@ -78,36 +93,42 @@ const Checkout = () => {
                   <label htmlFor="address">Address</label>
                   <br />
                   <input
+                    required
                     id="address"
                     type="text"
                     name="address"
                     placeholder="62511 Whitefeild Banglore"
                   />
                 </div>
-                <div className="zip-code">
-                  <label htmlFor="zip-code">Zip code</label>
-                  <br />
-                  <input
-                    id="zip-code"
-                    type="number"
-                    name="email"
-                    placeholder="10001"
-                  />
-                </div>
-                <div className="city">
-                  <label htmlFor="city">City</label>
-                  <br />
-                  <input
-                    id="city"
-                    type="text"
-                    name="city"
-                    placeholder="Bangalore"
-                  />
+                <div className="common">
+                  <div className="zip-code">
+                    <label htmlFor="zip-code">Zip code</label>
+                    <br />
+                    <input
+                      required
+                      id="zip-code"
+                      type="number"
+                      name="email"
+                      placeholder="10001"
+                    />
+                  </div>
+                  <div className="city">
+                    <label htmlFor="city">City</label>
+                    <br />
+                    <input
+                      required
+                      id="city"
+                      type="text"
+                      name="city"
+                      placeholder="Bangalore"
+                    />
+                  </div>
                 </div>
                 <div className="country">
                   <label htmlFor="country">Country</label>
                   <br />
                   <input
+                    required
                     id="country"
                     type="text"
                     name="country"
@@ -124,6 +145,7 @@ const Checkout = () => {
                   <label htmlFor="e-money-number">e-Money number</label>
                   <br />
                   <input
+                    required
                     id="e-money-number"
                     type="text"
                     name="e-money-number"
@@ -134,6 +156,7 @@ const Checkout = () => {
                   <label htmlFor="e-money-pin">e-Money PIN</label>
                   <br />
                   <input
+                    required
                     id="e-money-pin"
                     type="text"
                     name="e-money-pin"
@@ -167,20 +190,20 @@ const Checkout = () => {
 
                 <div className="checkout-summary__total-cost">
                   <div className="total">
-                    <span>Total</span>
-                    <span>{}</span>
+                    <span className="text">Total</span>
+                    <span>{total}</span>
                   </div>
                   <div className="shipping">
-                    <span>Shipping</span>
+                    <span className="text">Shipping</span>
                     <span>Rs {shippingCharge}</span>
                   </div>
-                  <div className="total">
-                    <span>Vat (Included)</span>
+                  <div className="vat">
+                    <span className="text">Vat (Included)</span>
                     <span>Rs {vatCharge}</span>
                   </div>
                   <div className="grand-total">
-                    <span>Grand Total</span>
-                    <span>{grandTotal}</span>
+                    <span className="text">Grand Total</span>
+                    <span>Rs {grandTotal}</span>
                   </div>
                 </div>
 
@@ -196,6 +219,9 @@ const Checkout = () => {
 
           </form>
         </div>
+      
+        </div>
+        
       </section>
       <Footer />
     </>

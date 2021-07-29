@@ -1,13 +1,33 @@
 .cart-box {
-  // height: 40vh;
   min-height: 40vh;
- 
+  min-width: 30rem;
   background-color: #fff;
-  margin: 10rem 2rem 0 2rem;
+  margin: 10rem .5rem 0 .5rem;
   border-radius: 5px;
+  padding-bottom: 1.5rem;
+
+  @include breakpoint-up(medium){
+    margin: 10rem 2rem 0 2rem;
+    width: 30%;
+    float: right;
+  }
+
+  .close--cart-box{
+
+    padding-right: 1rem;
+    color: $brown;
+    font-weight: 700;
+    span{
+      padding: 0 1rem;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 .product-in-cart {
+  padding: 0rem 2rem;
   &__header {
     display: flex;
     justify-content: space-between;
@@ -27,37 +47,76 @@
 
   &__body {
 
+    
     .single-product{
-        display: block;
-        width: 100%;
-        min-height: 6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 6rem;
     }
 
     .body__details {
-      height: 100%;
+      display: flex;
+      align-items: center;
       img {
           height: 5rem;
           width: 5rem;
       }
-      .title {
-          color: green;
-      }
-      .price {
+      .text{
+        margin-left: 1rem;
+        font-size: 1rem;
+        .title {
+          color: gray;
+        }
+        .price {
+        }
       }
     }
 
     .body__btns{
-        width: 35%;
+      text-align: center;
+        .decrease, .increase{
+          padding: .5rem;
+          background: #eee;
+
+          &:hover{
+            filter: brightness(90%);
+          }
+        }
+
+        .quantity{
+          padding: .5rem 1.6rem;
+          background: #eee;
+        }
+        
+    }
+
+  }
+
+  &__cost{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    .text{
+      color: gray;
+    }
+    .price{
+      font-weight: 700;
     }
   }
 
   &__empty {
     .text {
-      font-size: 2.5rem;
       font-weight: 500;
       text-align: center;
       padding-top: 5rem;
       text-transform: uppercase;
+      @include breakpoint-up(medium){
+        font-size: 2rem;
+      }
+      @include breakpoint-up(large){
+        font-size: 2.5rem;
+      }
     }
   }
 }

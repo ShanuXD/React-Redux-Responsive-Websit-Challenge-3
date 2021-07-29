@@ -90,6 +90,17 @@ body{
 }
 
 
+.display-flex{
+    display: flex;
+    &--jc-space{
+        justify-content: space-between;
+    }
+    &--jc-center{
+        justify-content: center;
+    }
+}
+
+
 
 // Products Tabs
 // .products{

@@ -47,7 +47,7 @@ const SingleProduct = () => {
     return (
       <>
       <div className="container">
-        <Link className="btn-go-back" to="/">
+        <Link className="btn-go-back" to={`/${productCategory}`}>
           Go Back
         </Link>
         <section className="item ">
@@ -105,8 +105,8 @@ const SingleProduct = () => {
             <div className="item__product-images">
               {imagesData[name].slice(1,imagesData.length).map((image, index)=>{
                 return <img 
-                key={index}
-                 className="image" 
+                 key={index}
+                 className={`image image-${index+1}`}
                  src={image} 
                  alt={`${name}-${index}`} />
               })}

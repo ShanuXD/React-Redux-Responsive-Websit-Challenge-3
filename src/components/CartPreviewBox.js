@@ -11,7 +11,7 @@ const CartPreviewBox = ({ closeMenu, products_state }) => {
   console.log(products_in_cart);
   return (
     <div className="cart-box cart-box__container">
-      {/* Product data */}
+      <div className="close--cart-box" onClick={closeMenu}><span>X</span></div>
       <div className="product-in-cart">
         {products_in_cart.length > 0 ? (
           <>
@@ -34,9 +34,11 @@ const CartPreviewBox = ({ closeMenu, products_state }) => {
                 return (
                   <div key={index} className="single-product">
                     <div className="body__details">
-                      <img src={cartImage[name]} alt="" />
-                      <div className="title">{name}</div>
-                      <div className="price">{price}</div>
+                      <img src={cartImage[name]} alt={cartImage[name]} />
+                      <div className="text">
+                        <div className="title">{name}</div>
+                        <div className="price">{price}</div>
+                      </div>
                     </div>
                     <div className="body__btns">
                       <span className="decrease" onClick={()=>dispatch(decrease(product))}>-</span>
@@ -47,9 +49,9 @@ const CartPreviewBox = ({ closeMenu, products_state }) => {
                 );
               })}
             </div>
-            <div className="cost">
-              <span>Total</span>
-              <span>Rs {total_cost}</span>
+            <div className="product-in-cart__cost">
+              <span className="text">Total</span>
+              <span className="price">Rs {total_cost}</span>
             </div>
             <Link to="/checkout" className="btn" onClick={closeMenu}>
               CHECKOUT
