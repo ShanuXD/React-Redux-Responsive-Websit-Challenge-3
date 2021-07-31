@@ -60,6 +60,10 @@
                 font-size: 1.3rem;
                 color: #fff;
                 font-weight: 400;
+
+                &:hover{
+                    color: $brown;
+                }
             }
 
         }
@@ -75,7 +79,7 @@
             height: 100%;
             width: 100%;
             display: inline-block;
-            background: url("../assets/shared/desktop/cart.svg");
+            background: url("../assets-image/svgs/cart.svg");
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;

@@ -8,7 +8,7 @@ const CartPreviewBox = ({ closeMenu, products_state }) => {
   const products_in_cart = products_state.products;
   const total_cost = products_state.total;
   const dispatch = useDispatch();
-  console.log(products_in_cart);
+  
   return (
     <div className="cart-box cart-box__container">
       <div className="close--cart-box" onClick={closeMenu}><span>X</span></div>

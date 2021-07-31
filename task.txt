@@ -1,3 +1,0 @@
-Make the photo rsponsive , Single Product Section, Using GRID
-Clear Products, And Show thank You message. When We purchase Check the form. 
-care a other div for over lay

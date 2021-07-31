@@ -1,7 +1,6 @@
 import React, {useRef} from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { clearCart } from "../redux/action";
+import { useSelector } from "react-redux";
 import Footer from "../components/Footer";
 import { cartImage } from "../images";
 import ThankYou from "../components/ThankYou";
@@ -14,7 +13,8 @@ const Checkout = () => {
   const vatCharge = 1500
   const grandTotal = total === 0 ? 0 : shippingCharge+ vatCharge+ total
 
-  const onPurchase = ()=>{
+  const handelForm = (event)=>{
+    event.preventDefault()
     checkoutRef.current.classList.add("overlay")
     checkoutRef.current.style.display="flex"
   }
@@ -46,7 +46,7 @@ const Checkout = () => {
         
         <div className="checkout__deatials">
           <h1>Checkout</h1>
-          <form className="checkout__form">
+          <form className="checkout__form" onSubmit={handelForm}>
             <div className="checkout-box">
               <div className="checkout--billing-details">
                 <h5>Billing Details</h5>
@@ -138,9 +138,6 @@ const Checkout = () => {
               </div>
               <div className="checkout--payment-details">
                 <h5>Payment Details</h5>
-                {/* payment methood --> e-money, cash on delivery select only one */}
-                {/* if e money got selected */}
-                {/* e-money/num */} {/*e-money-Pin*/}
                 <div className="e-money-number">
                   <label htmlFor="e-money-number">e-Money number</label>
                   <br />
@@ -149,7 +146,7 @@ const Checkout = () => {
                     id="e-money-number"
                     type="text"
                     name="e-money-number"
-                    placeholder="India"
+                    placeholder="1234-5555-6789"
                   />
                 </div>
                 <div className="e-money-pin">
@@ -160,7 +157,7 @@ const Checkout = () => {
                     id="e-money-pin"
                     type="text"
                     name="e-money-pin"
-                    placeholder="India"
+                    placeholder="656565"
                   />
                 </div>
               </div>
@@ -209,11 +206,11 @@ const Checkout = () => {
 
 
               <div className="checkout__btn">
-                <span
-                  className="btn btn-buy"
-                  onClick={onPurchase}>
+                <button
+                style={{border:"none"}}
+                  className="btn btn-buy">
                   Continue & Pay
-                </span>
+                </button>
               </div>
             </div>
 

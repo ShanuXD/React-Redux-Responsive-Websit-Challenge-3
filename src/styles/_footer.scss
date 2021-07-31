@@ -8,6 +8,29 @@ footer{
     align-items: center;
     flex-direction: column;
     text-align: center;
+    @include breakpoint-up(medium){
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .box-1{
+        @include breakpoint-up(medium){
+            width: 100%;
+        }
+        @include breakpoint-up(large){
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+    }
+    .box-2{
+        width: 100%;
+        @include breakpoint-up(medium){
+            display: flex;
+            justify-content: space-between;
+        }
+    }
 
     &__logo{
         margin: 3rem 0;
@@ -39,14 +62,14 @@ footer{
     &__links{
         @include breakpoint-up(medium){
             display: flex;
-            margin: 1rem;
+            // margin: 1rem;
         }
         
         li{
             margin-bottom: 3rem;
             @include breakpoint-up(medium){
                 margin-bottom: 0;
-                margin-left: 2rem;
+                margin-right: 2rem;
             }
             
 
@@ -63,12 +86,17 @@ footer{
         font-size: 1.3rem; 
         font-weight: 400;
         color: $white !important;
+        &:hover{
+            color: $brown !important;
+        }
     }
 
     &__text{
         color: gray;
         font-weight: 200;
         margin-bottom: 3rem;
+        max-width: 60rem;
+
     }
 
     &__copyright{
@@ -77,15 +105,24 @@ footer{
         margin-bottom: 3rem;
     }
 
-    &__logos{
+    &__social{
         display: flex;
+        justify-content: center;
+        @include breakpoint-up(large){
+            margin-bottom: 5rem;
+        }
         
         margin-bottom: 3rem;
         li{
             
-            height: 2.5rem;
-            width: 2.5rem;
+            height: 1.8rem;
+            width: 1.8rem;
             margin: 0 1rem;
+
+            @include breakpoint-up(medium){
+                height: 2rem;
+                width: 2rem;
+            }
         }
         .logo--1{
             background: url("../assets-image/svgs/icon-facebook.svg");

@@ -116,7 +116,7 @@
       margin-left: 4rem;
     }
     @include breakpoint-up(large) {
-      margin-left: 10rem;
+      margin-left: 8rem;
     }
 
     &--text {
@@ -128,37 +128,48 @@
   }
 
   &__product-images{
+    width: 100%;
     margin-top: 5rem;
-    display: flex;
-    flex-direction: column;
     @include breakpoint-up("medium"){
-      // flex-direction: row;
+      display: grid;
+      grid-gap: 50px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows:1fr 1fr;
+      grid-template-areas: 
+      "image-one image-three"
+      "image-two image-three";
     }
 
     img{
       margin: 1rem 0rem;
        width: 100%;
-       background-size: cover;
+       background-size: contain;
        background-position: center center;
-      //  @include breakpoint-up("medium"){
-      //    width: 45%;
-      //  }
+       @include breakpoint-up("medium"){
+        margin: 0rem 0rem;
+       }
     }
 
-    .image-1, .image-2{
-    }
-
-    @include breakpoint-up("medium"){
-      .image:nth-child(3){
-        order: 2;
-      }
-      .image:nth-child(2){
-        order: 3;
+    .image-1{
+      @include breakpoint-up("medium"){
+        grid-area: image-one;
+        width: 100%;
+        // height: 100%;
       }
     }
-
-    
-
+    .image-2{
+      @include breakpoint-up("medium"){
+        grid-area: image-two;
+        width: 100%;
+      }
+    }
+    .image-3{
+      @include breakpoint-up("medium"){
+        grid-area: image-three;
+        width: 100%;
+        height: 100%;
+      }
+    }
 
   }
 

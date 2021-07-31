@@ -11,9 +11,6 @@ const ThankYou = ({products, total, checkoutRef}) => {
 
     const closeMenu =()=>{
 
-        // Check if Form is Completed or not!
-        // Cod not completed
-
         checkoutRef.current.classList.remove("overlay")
         checkoutRef.current.style.display="none"
         dispatch(clearCart())
@@ -22,7 +19,6 @@ const ThankYou = ({products, total, checkoutRef}) => {
     return (
         <div className="thank-you">
             <div className="logo">
-                {/* <div className="icon"></div> */}
                 <span className="checkmark">
                     <div className="checkmark_circle"></div>
                     <div className="checkmark_stem"></div>

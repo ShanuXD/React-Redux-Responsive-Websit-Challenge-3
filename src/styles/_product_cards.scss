@@ -7,6 +7,8 @@
     margin-top: 20rem;
     margin-bottom: 10rem;
 
+    
+
     @include breakpoint-up(medium){
         // margin-top: 0;
         flex-direction: row;
