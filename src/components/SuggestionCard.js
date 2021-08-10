@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import ProductList from "../Data";
 import ImageData from "../images";
 
 const SuggestionCard = ({name}) => {

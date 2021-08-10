@@ -1,4 +1,4 @@
-import {INCREASE, DECREASE, ADD_TO_CART, CLEAR_FROM_CART, GET_TOTAL} from "./actionTypes"
+import {INCREASE, DECREASE, ADD_TO_CART, CLEAR_FROM_CART,} from "./actionTypes"
 
  const reducer=(state, action)=>{
 
