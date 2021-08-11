@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProductList from "../Data";
 import { useParams, useHistory, Link } from "react-router-dom";
 import Error from "./Error";
@@ -25,17 +25,20 @@ const getRandomValue = (array) => {
 const SingleProduct = () => {
   const [selectedItem, setSelectedItem] = useState(1);
   const dispatch = useDispatch();
-
   const { id } = useParams();
   const prevUrl = useHistory();
-
   const productCategory = prevUrl.location.pathname.split("/")[1];
   const products = ProductList[productCategory];
-
+  
   let currentProduct = null;
   products.forEach((product) => {
     if (product.id === parseInt(id)) currentProduct = product;
   });
+
+  useEffect(()=>{
+    setSelectedItem(1)
+  },[currentProduct])
+
 
   // if id not present in the collection!
   if (currentProduct == null) {
@@ -46,8 +49,8 @@ const SingleProduct = () => {
 
     let suggestionProducts = [];
     const findSuggestions = () => {
+      const suggestion=[]
       while (suggestionProducts.length < 3) {
-        const suggestion=[]
         const category = getRandomProperty(ProductList);
         const randomProduct = getRandomValue(ProductList[category])
         if(randomProduct.name !== currentProduct.name &&
