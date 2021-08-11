@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import ImageData from "../images";
 
-const SuggestionCard = ({name}) => {
+const SuggestionCard = ({name, category, id}) => {
 
     return (
         <div className="suggestion-card">
@@ -12,7 +12,7 @@ const SuggestionCard = ({name}) => {
             src={`${ImageData[name][0]}`}
             />
             <div className="suggestion-card--title">{name}</div>
-            <Link to="/" className="btn">See Product</Link>            
+            <Link to={"/"+category+"/"+id} className="btn">See Product</Link>            
         </div>
     )
 }

@@ -7,11 +7,11 @@ import Home from "./pages/Home";
 import Speakers from "./pages/Speakers";
 import Error from "./pages/Error";
 import SingleProduct from "./pages/SingleProduct";
-import "./styles/style.scss";
 import Checkout from "./pages/Checkout";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import ScrollToTop from "./ScrollToTop";
+import "./styles/style.scss";
 
 function App() {
   return (

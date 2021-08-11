@@ -47,12 +47,14 @@ const SingleProduct = () => {
     let suggestionProducts = [];
     const findSuggestions = () => {
       while (suggestionProducts.length < 3) {
+        const suggestion=[]
         const category = getRandomProperty(ProductList);
         const randomProduct = getRandomValue(ProductList[category])
         if(randomProduct.name !== currentProduct.name &&
-           !suggestionProducts.includes(randomProduct.name)){
+           !suggestion.includes(randomProduct.name)){
           // console.log(randomProduct.name)
-          suggestionProducts.push(randomProduct.name)
+          suggestion.push(randomProduct.name)
+          suggestionProducts.push({name:randomProduct.name, id:randomProduct.id, category:category })
         }
       }
     };
@@ -161,7 +163,8 @@ const SingleProduct = () => {
             <h1>You May Also Like</h1>
             <div className="suggestion-cards">
             {suggestionProducts.map((productName, index)=>{
-              return <SuggestionCard key={index} name={productName}/>
+              const {id, name, category} = productName
+              return <SuggestionCard key={index} name={name} id={id} category={category}/>
             })}
             </div>
           </div>
