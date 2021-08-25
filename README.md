@@ -1,4 +1,8 @@
-8u98i# Getting Started with Create React App
+#A Frontend Mentor Challenge, 
+Where I havebuilt the exact application just by using their design
+
+Challenge Link: - https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx
+App link: - https://react-redux-audiophile.netlify.app/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
