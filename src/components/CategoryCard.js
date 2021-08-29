@@ -6,16 +6,16 @@ const CategoryCard = ({ productCategory, number }) => {
 
   return (
     <div className="product-card container">
-      <div className="card">
+      <Link to={`/${productCategory}`} className="card">
         <div className={`image-${number}`}></div>
         <span className="title">{productCategory}</span>
         <span className="btn-shop">
-          <Link to={`/${productCategory}`} className="btn-shop-link">
+          <span  className="btn-shop-link">
             Shop
-          </Link>
+          </span>
           <span className="arrow-icon"></span>
         </span>
-      </div>
+      </Link>
     </div>
   );
 };
